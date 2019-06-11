@@ -8,8 +8,7 @@ In this challenge, we will test standard coding skills (mostly - debugging) as w
 
 ## Installing / Getting started
 
-In order to run, open the project file using your favourite .net IDE and click the 'Run' button:
-![How To Run](/how-to-run)
+In order to run, open the project file using your favourite .net IDE and click the 'Run' button.
 
 Alternatively, you can run directly through CLI:
 ```
@@ -30,7 +29,7 @@ Once the code is fixed and the program is successfuly executed, it will provide 
 
 ### Stage 4
 
-That's it! send us your solution with the github repo and your CV to challenge@kryon.com and wait for our call!
+That's it! send us your solution with the github repo and your CV to challenge@kryonsystems.com and wait for our call!
 
 
 

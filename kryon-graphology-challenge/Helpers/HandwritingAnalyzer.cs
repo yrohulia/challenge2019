@@ -9,9 +9,9 @@ namespace kryongraphologychallenge.Helpers
 {
     public class HandwritingAnalyzer
     {
-        const string subscriptionKey = "89b81668c00c46ad9ef1ac60f85ae020";
+        const string subscriptionKey = "37c91a999e8245648a805c4885788530";
         const string uriBase =
-    "https://eastus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+    "https://northeurope.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
         public HandwritingAnalyzer()
         {

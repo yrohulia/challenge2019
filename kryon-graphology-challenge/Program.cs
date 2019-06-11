@@ -25,23 +25,24 @@ namespace kryon_graphology_challenge
             //                      |  $$$$$$/                    
             //                       \______/                     
 
-            // TODO: STAGE 1 //
+            // TODO: STAGE 1 - read and understand what this code is suppose to do //
             string[] paths = { "demo-1.jpeg", "demo-2.jpeg", "demo-3.jpeg", "demo-4.jpeg", "demo-5.jpeg" };
 
             foreach (string path in paths) {
                 Console.WriteLine("\nReading challenge file " + path + "...\n");
                 JToken responseObject = HandwritingAnalyzer.ReadHandwrittenText("./Image-files/" + path).Result;
                 Console.WriteLine(responseObject.ToString());
-                // TODO: STAGE 2 //
+                // TODO: STAGE 2 - fix the code so it prints the wanted results //
                 // WANT TO ANALYZE HUGE AMOUNTS OF TEXT 
                 // AND UTILIZE IT TO PARTICIPATE THE NEXT
-                // INDUSTRIAL REVOLUTION?
-                // result += responseObject....
+                // INDUSTRIAL REVOLUTION? 
             }
 
-            // TODO: STAGE 3 //
+            // TODO: STAGE 3 - find the connections between the outputs above //
             Console.WriteLine("\nCan you find the connection between the outputs above?");
-            Console.WriteLine("\nSend us your solution with the github repo and your CV to challenge@kryon.com and wait for our call!\n");
+
+            // TODO: STAGE 4 - submit your answers, repo and CV, and join us for a cup of coffee //
+            Console.WriteLine("\nSend us your solution with the github repo and your CV to challenge@kryonsystems.com and wait for our call!\n");
             Console.ReadLine();
         }
     }
