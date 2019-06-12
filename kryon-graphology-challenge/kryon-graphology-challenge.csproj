@@ -18,4 +18,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\ArticlesController.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Image-files\demo-1.jpeg" />
+  </ItemGroup>
 </Project>
