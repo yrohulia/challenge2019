@@ -1,9 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using kryongraphologychallenge.Helpers;
 using Newtonsoft.Json.Linq;
 
@@ -25,26 +21,48 @@ namespace kryon_graphology_challenge
             //                      |  $$$$$$/                    
             //                       \______/                     
 
-            // TODO: STAGE 1 - read and understand what this code is suppose to do //
-            string[] paths = { "demo-image-1.jpeg" };
+            string[] paths = Directory.GetFiles("./Image-files/");
 
             foreach (string path in paths) {
                 Console.WriteLine("\nReading challenge file " + path + "...\n");
-                var process = HandwritingAnalyzer.ReadHandwrittenText("./Image-files/" + path);
+                var process = HandwritingAnalyzer.ReadHandwrittenText(path);
                 process.Wait();
                 JToken result = process.Result;
-                // TODO: STAGE 2 - fix the code so it prints the wanted results //
-                // WANT TO ANALYZE HUGE AMOUNTS OF TEXT 
-                // AND UTILIZE IT TO PARTICIPATE THE NEXT
-                // INDUSTRIAL REVOLUTION? 
-                Console.WriteLine(result.ToString());
+
+                if (result["status"].ToString() == "Succeeded")
+                {
+                    foreach (var page in result["recognitionResults"])
+                    {
+                        Console.WriteLine($"Page: {page["page"]}\n");
+
+                        foreach (var line in page["lines"])
+                        {
+                            foreach (var word in line["words"])
+                            {
+                                if (word["confidence"] != null)
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                                }
+
+                                Console.Write($"{word["text"]}");
+                                Console.ResetColor();
+
+                                if (word.Next != null)
+                                {
+                                    Console.Write(" ");
+                                }
+                            }
+
+                            Console.WriteLine();
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Error recognizing the text - {result["status"]}");
+                }
             }
 
-            // TODO: STAGE 3 - find the connections between the outputs above //
-            Console.WriteLine("\nCan you find the connection between the outputs above?");
-
-            // TODO: STAGE 4 - submit your answers, repo and CV, and join us for a cup of coffee //
-            Console.WriteLine("\nSend us your solution with the github repo and your CV to challenge@kryonsystems.com and wait for our call!\n");
             Console.ReadLine();
         }
     }
